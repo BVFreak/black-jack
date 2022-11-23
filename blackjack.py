@@ -83,14 +83,14 @@ def staying():
         amount = 0
         tkinter.Label(gameWindow, text="Balance: %d   " %(money), bg="white").place(x=465, y=430)
         tkinter.Label(gameWindow, text="Choose Bet:   ", bg="white").place(x=465, y=375)
-        tkinter.Label(gameWindow, text="Pot: %d   " %(amount), bg="white").place(x=465, y=350)
+        tkinter.Label(gameWindow, text="Pot: %d   " %(amount*2), bg="white").place(x=465, y=350)
     if dealer_score > player_score and dealer_score <= 21:
         winner.set("You lost...")
         done = True
         amount = 0
         tkinter.Label(gameWindow, text="Balance: %d   " %(money), bg="white").place(x=465, y=430)
         tkinter.Label(gameWindow, text="Choose Bet:   ", bg="white").place(x=465, y=375)
-        tkinter.Label(gameWindow, text="Pot: %d   " %(amount), bg="white").place(x=465, y=350)
+        tkinter.Label(gameWindow, text="Pot: %d   " %(amount*2), bg="white").place(x=465, y=350)
     if dealer_score > 21 and player_score > 21:
         winner.set("You both busted... tie")
         done = True
@@ -98,7 +98,7 @@ def staying():
         amount = 0
         tkinter.Label(gameWindow, text="Balance: %d   " %(money), bg="white").place(x=465, y=430)
         tkinter.Label(gameWindow, text="Choose Bet:   ", bg="white").place(x=465, y=375)
-        tkinter.Label(gameWindow, text="Pot: %d   " %(amount), bg="white").place(x=465, y=350)
+        tkinter.Label(gameWindow, text="Pot: %d   " %(amount*2), bg="white").place(x=465, y=350)
     if dealer_score < player_score and player_score <= 21:
         winner.set("You win!")
         done = True
@@ -106,7 +106,7 @@ def staying():
         amount = 0
         tkinter.Label(gameWindow, text="Balance: %d   " %(money), bg="white").place(x=465, y=430)
         tkinter.Label(gameWindow, text="Choose Bet:   ", bg="white").place(x=465, y=375)
-        tkinter.Label(gameWindow, text="Pot: %d   " %(amount), bg="white").place(x=465, y=350)
+        tkinter.Label(gameWindow, text="Pot: %d   " %(amount*2), bg="white").place(x=465, y=350)
     if player_score == dealer_score:
         winner.set("Its a tie")
         done = True
@@ -114,18 +114,17 @@ def staying():
         amount = 0
         tkinter.Label(gameWindow, text="Balance: %d   " %(money), bg="white").place(x=465, y=430)
         tkinter.Label(gameWindow, text="Choose Bet:   ", bg="white").place(x=465, y=375)
-        tkinter.Label(gameWindow, text="Pot: %d   " %(amount), bg="white").place(x=465, y=350)
+        tkinter.Label(gameWindow, text="Pot: %d   " %(amount*2), bg="white").place(x=465, y=350)
     if done == True:
         tkinter.Button(gameWindow, text="5", command=betAmount5).place(x=455, y=400)  #create a button
         tkinter.Button(gameWindow, text="10", command=betAmount10).place(x=475, y=400)  #create a button
         tkinter.Button(gameWindow, text="25", command=betAmount25).place(x=500, y=400)  #create a button
         tkinter.Button(gameWindow, text="50", command=betAmount50).place(x=525, y=400)  #create a button
-        tkinter.Button(gameWindow, text="OK", command=new_game).place(x=565, y=400)
         reset_button = tkinter.Button(gameWindow, text="New Game", command=new_game, bg='green')
         reset_button.place(x=275,y=400)
-        player_button = tkinter.Button(gameWindow, text="     ", padx=8, bg='gray')
+        player_button = tkinter.Button(gameWindow, text="          ", bg='gray')
         player_button.place(x=220,y=350)
-        player_button = tkinter.Button(gameWindow, text="     ", padx=8, bg='gray')
+        player_button = tkinter.Button(gameWindow, text="          ", bg='gray')
         player_button.place(x=350,y=350)
 
 #Show the winner when the player hits
@@ -139,7 +138,7 @@ def hitting():
     player_score = calcScore(player_hand)
     playerScore.set(player_score)
 
-    player_button = tkinter.Button(gameWindow, text="               ", padx=8, bg='gray')
+    player_button = tkinter.Button(gameWindow, text="               ", bg='gray')
     player_button.place(x=275,y=400)
     player_button = tkinter.Button(gameWindow, text="Hit", command=hitting, padx=8, bg='cyan')
     player_button.place(x=220,y=350)
@@ -154,18 +153,17 @@ def hitting():
         amount = 0
         tkinter.Label(gameWindow, text="Balance: %d   " %(money), bg="white").place(x=465, y=430)
         tkinter.Label(gameWindow, text="Choose Bet:   ", bg="white").place(x=465, y=375)
-        tkinter.Label(gameWindow, text="Pot: %d   " %(amount), bg="white").place(x=465, y=350)
+        tkinter.Label(gameWindow, text="Pot: %d   " %(amount*2), bg="white").place(x=465, y=350)
     if done == True:
         tkinter.Button(gameWindow, text="5", command=betAmount5).place(x=455, y=400)  #create a button
         tkinter.Button(gameWindow, text="10", command=betAmount10).place(x=475, y=400)  #create a button
         tkinter.Button(gameWindow, text="25", command=betAmount25).place(x=500, y=400)  #create a button
         tkinter.Button(gameWindow, text="50", command=betAmount50).place(x=525, y=400)  #create a button
-        tkinter.Button(gameWindow, text="OK", command=new_game).place(x=565, y=400)
         reset_button = tkinter.Button(gameWindow, text="New Game", command=new_game, bg='green')
         reset_button.place(x=275,y=400)
-        player_button = tkinter.Button(gameWindow, text="     ", padx=8, bg='gray')
+        player_button = tkinter.Button(gameWindow, text="      ", padx=8, bg='gray')
         player_button.place(x=220,y=350)
-        player_button = tkinter.Button(gameWindow, text="     ", padx=8, bg='gray')
+        player_button = tkinter.Button(gameWindow, text="      ", padx=8, bg='gray')
         player_button.place(x=350,y=350)
 
 
@@ -196,7 +194,6 @@ def new_game():
     tkinter.Button(gameWindow, text="    ", bg="gray").place(x=475, y=400)  #create a button
     tkinter.Button(gameWindow, text="    ", bg="gray").place(x=500, y=400)  #create a button
     tkinter.Button(gameWindow, text="    ", bg="gray").place(x=525, y=400)  #create a button
-    tkinter.Button(gameWindow, text="     ", bg="gray").place(x=565, y=400)
 
     shuffle()
 
@@ -228,7 +225,7 @@ def betAmount5():
         amount += 5
         money -= 5
     tkinter.Label(gameWindow, text="Balance: %d   " %(money), bg="white").place(x=465, y=430)
-    tkinter.Label(gameWindow, text="Pot: %d   " %(amount), bg="white").place(x=465, y=350)
+    tkinter.Label(gameWindow, text="Pot: %d   " %(amount*2), bg="white").place(x=465, y=350)
 
 def betAmount10():
     global money
@@ -238,7 +235,7 @@ def betAmount10():
         amount += 10
         money -= 10
     tkinter.Label(gameWindow, text="Balance: %d   " %(money), bg="white").place(x=465, y=430)
-    tkinter.Label(gameWindow, text="Pot: %d   " %(amount), bg="white").place(x=465, y=350)
+    tkinter.Label(gameWindow, text="Pot: %d   " %(amount*2), bg="white").place(x=465, y=350)
 
 def betAmount25():
     global money
@@ -248,7 +245,7 @@ def betAmount25():
         amount = 25
         money -= 25
     tkinter.Label(gameWindow, text="Balance: %d   " %(money), bg="white").place(x=465, y=430)
-    tkinter.Label(gameWindow, text="Pot: %d   " %(amount), bg="white").place(x=465, y=350)
+    tkinter.Label(gameWindow, text="Pot: %d   " %(amount*2), bg="white").place(x=465, y=350)
 
 def betAmount50():
     global money
@@ -258,7 +255,7 @@ def betAmount50():
         amount += 50
         money -= 50
     tkinter.Label(gameWindow, text="Balance: %d   " %(money), bg="white").place(x=465, y=430)
-    tkinter.Label(gameWindow, text="Pot: %d   " %(amount), bg="white").place(x=465, y=350)
+    tkinter.Label(gameWindow, text="Pot: %d   " %(amount*2), bg="white").place(x=465, y=350)
 
 gameWindow = tkinter.Tk()
 
@@ -317,7 +314,9 @@ tkinter.Button(gameWindow, text="5", command=betAmount5).place(x=455, y=400)  #c
 tkinter.Button(gameWindow, text="10", command=betAmount10).place(x=475, y=400)  #create a button
 tkinter.Button(gameWindow, text="25", command=betAmount25).place(x=500, y=400)  #create a button
 tkinter.Button(gameWindow, text="50", command=betAmount50).place(x=525, y=400)  #create a button
-tkinter.Button(gameWindow, text="OK", command=new_game).place(x=565, y=400)
+
+reset_button = tkinter.Button(gameWindow, text="New Game", command=new_game, bg='green')
+reset_button.place(x=275,y=400)
 
 def ok():
     # Create the list to store the dealer's and player's hands
