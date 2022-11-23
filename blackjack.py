@@ -76,18 +76,17 @@ def staying():
         dealer_score = calcScore(dealer_hand)
         dealerScore.set(dealer_score)
 
-    if player_score > 21 or dealer_score > player_score:
-        winner.set("You lost...")
+    if dealer_score > 21 and player_score <= 21:
+        winner.set("Dealer Busted, You win!")
         done = True
-        bust = True
+        money += amount*2
         amount = 0
         tkinter.Label(gameWindow, text="Balance: %d   " %(money), bg="white").place(x=465, y=430)
         tkinter.Label(gameWindow, text="Choose Bet:   ", bg="white").place(x=465, y=375)
         tkinter.Label(gameWindow, text="Pot: %d   " %(amount), bg="white").place(x=465, y=350)
-    if dealer_score > 21 and player_score <= 21:
-        winner.set("Dealer busted. You win!")
+    if dealer_score > player_score and dealer_score <= 21:
+        winner.set("You lost...")
         done = True
-        money += amount*2
         amount = 0
         tkinter.Label(gameWindow, text="Balance: %d   " %(money), bg="white").place(x=465, y=430)
         tkinter.Label(gameWindow, text="Choose Bet:   ", bg="white").place(x=465, y=375)
@@ -95,7 +94,6 @@ def staying():
     if dealer_score > 21 and player_score > 21:
         winner.set("You both busted... tie")
         done = True
-        bust = True
         money += amount
         amount = 0
         tkinter.Label(gameWindow, text="Balance: %d   " %(money), bg="white").place(x=465, y=430)
